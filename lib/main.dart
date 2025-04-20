@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
                 GlobalCupertinoLocalizations.delegate,
               ],
               // تأكد من استخدام نفس اسم الكلاس كما هو معرف في ملف splach_view.dart
-                            home: SplashView(),
+                            home: SignInView(),
             );
           },
         );

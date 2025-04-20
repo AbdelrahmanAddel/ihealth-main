@@ -48,9 +48,9 @@ Widget dictionaryListContent({required int index, required BuildContext context}
               Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].disease:diseaseInfoa[index].disease,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
-              style: AppTextStyle.poppins40014.copyWith(color: Colors.black),
+              style: AppTextStyle.poppins40014.copyWith(color:Colors.black), ),
             ),
-          ),
+          
         ],
       ),
     ),

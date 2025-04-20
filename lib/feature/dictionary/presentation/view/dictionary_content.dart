@@ -12,6 +12,8 @@ import '../../../../../language_provider.dart';
 class DictionaryContent extends StatelessWidget {
   const DictionaryContent({super.key, required this.index});
   final int index;
+  
+  
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class DictionaryContent extends StatelessWidget {
         //diseaseInfo[index].disease
           
           ,
-          style: AppTextStyle.poppins60030.copyWith(fontSize: 25.sp),
+          style: AppTextStyle.poppins60030.copyWith(fontSize: 25.sp,color: Theme.of(context).colorScheme.primary),
         ),
       ),
       body: SafeArea(
@@ -40,49 +42,63 @@ class DictionaryContent extends StatelessWidget {
             children: [
               sectionTitle(
                 //AppStrings.description
-                AppLocalizations.of(context).translate("description"),),
-              sectionContent( Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].description:diseaseInfoa[index].description),
+                AppLocalizations.of(context).translate("description"),Theme.of(context).colorScheme.primary),
+              sectionContent( Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].description:diseaseInfoa[index].description, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppLocalizations.of(context).translate("causes")),
-              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].causes:diseaseInfoa[index].causes),
+              sectionTitle(AppLocalizations.of(context).translate("causes")
+              ,Theme.of(context).colorScheme.primary),
+              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].causes:diseaseInfoa[index].causes, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppLocalizations.of(context).translate("symptoms")),
-              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].symptoms:diseaseInfoa[index].symptoms),
+              sectionTitle(AppLocalizations.of(context).translate("symptoms")
+              ,Theme.of(context).colorScheme.primary),
+              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].symptoms:diseaseInfoa[index].symptoms, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppLocalizations.of(context).translate("diagnosis")),
-              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].diagnosis:diseaseInfoa[index].diagnosis),
+              sectionTitle(AppLocalizations.of(context).translate("diagnosis")
+              ,Theme.of(context).colorScheme.primary),
+              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].diagnosis:diseaseInfoa[index].diagnosis, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppLocalizations.of(context).translate("treatmentDuration")),
-              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].treatmentDuration:diseaseInfoa[index].treatmentDuration),
+              sectionTitle(AppLocalizations.of(context).translate("treatmentDuration")
+              ,Theme.of(context).colorScheme.primary),
+              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].treatmentDuration:diseaseInfoa[index].treatmentDuration, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppLocalizations.of(context).translate("medication")),
-              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].medication:diseaseInfoa[index].medication),
+              sectionTitle(AppLocalizations.of(context).translate("medication")
+              ,Theme.of(context).colorScheme.primary),
+              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].medication:diseaseInfoa[index].medication, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppLocalizations.of(context).translate("alternativeTreatments")),
-              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].alternativeTreatments:diseaseInfoa[index].alternativeTreatments),
+              sectionTitle(AppLocalizations.of(context).translate("alternativeTreatments")
+              ,Theme.of(context).colorScheme.primary),
+              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].alternativeTreatments:diseaseInfoa[index].alternativeTreatments, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppLocalizations.of(context).translate("diet")),
-              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].diet:diseaseInfoa[index].diet),
+              sectionTitle(AppLocalizations.of(context).translate("diet")
+              ,Theme.of(context).colorScheme.primary),
+              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].diet:diseaseInfoa[index].diet, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppLocalizations.of(context).translate("homeRemedies")),
-              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].homeRemedies:diseaseInfoa[index].homeRemedies),
+              sectionTitle(AppLocalizations.of(context).translate("homeRemedies")
+              ,Theme.of(context).colorScheme.primary),
+              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].homeRemedies:diseaseInfoa[index].homeRemedies, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppLocalizations.of(context).translate("advice")),
-              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].advice:diseaseInfoa[index].advice),
+              sectionTitle(AppLocalizations.of(context).translate("advice")
+              ,Theme.of(context).colorScheme.primary),
+              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].advice:diseaseInfoa[index].advice, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppLocalizations.of(context).translate("atRiskGroups")),
-              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].atRiskGroups:diseaseInfoa[index].atRiskGroups),
+              sectionTitle(AppLocalizations.of(context).translate("atRiskGroups")
+              ,Theme.of(context).colorScheme.primary),
+              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].atRiskGroups:diseaseInfoa[index].atRiskGroups, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppLocalizations.of(context).translate("complications")),
-              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].complications:diseaseInfoa[index].complications),
+              sectionTitle(AppLocalizations.of(context).translate("complications")
+              ,Theme.of(context).colorScheme.primary),
+              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].complications:diseaseInfoa[index].complications, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppLocalizations.of(context).translate("prevention")),
-              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].prevention:diseaseInfoa[index].prevention),
+              sectionTitle(AppLocalizations.of(context).translate("prevention")
+              ,Theme.of(context).colorScheme.primary),
+              sectionContent(Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].prevention:diseaseInfoa[index].prevention, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppLocalizations.of(context).translate("references")),
-              sectionContent( Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].references:diseaseInfoa[index].references),
+              sectionTitle(AppLocalizations.of(context).translate("references")
+              ,Theme.of(context).colorScheme.primary),
+              sectionContent( Provider.of<LanguageProvider>(context).isEnglish?diseaseInfo[index].references:diseaseInfoa[index].references, Theme.of(context).colorScheme.primary),
               divider(),
-              sectionTitle(AppStrings.diseaseImage),
+              sectionTitle(AppStrings.diseaseImage
+              ,Theme.of(context).colorScheme.primary),
               SizedBox(height: 10.h),
               Center(
                 child: Container(
@@ -114,16 +130,20 @@ class DictionaryContent extends StatelessWidget {
     );
   }
 
-  Widget sectionTitle(String title) {
+  Widget sectionTitle(String title,Color color) {
     return Padding(
-      padding: const EdgeInsets.only(top: 15, bottom: 8),
+      padding:  EdgeInsets.only(top: 15, bottom: 8),
       child: Row(
         children: [
           Text(
             title,
             style: AppTextStyle.poppins60030.copyWith(
               fontSize: 22,
-              decoration: TextDecoration.underline, // خط تحت العنوان
+              decoration: TextDecoration.underline,
+              color: color,
+              
+              
+              decorationColor: color, // خط تحت العنوان
             ),
           ),
         ],
@@ -131,10 +151,10 @@ class DictionaryContent extends StatelessWidget {
     );
   }
 
-  Widget sectionContent(String content) {
+  Widget sectionContent(String content, Color color) {
     return SelectableText(
       content,
-      style: AppTextStyle.poppins50020.copyWith(fontSize: 18),
+      style: AppTextStyle.poppins50020.copyWith(fontSize: 18,color: color),
     );
   }
 
