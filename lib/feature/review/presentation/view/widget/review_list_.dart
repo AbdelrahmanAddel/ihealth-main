@@ -15,11 +15,12 @@ class ReviewsList extends StatelessWidget {
     return BlocBuilder<ReviewsCubit, ReviewsState>(
       builder: (context, state) {
         return ListView.separated(
+          reverse: true,
           physics: const BouncingScrollPhysics(),
           itemCount: state is GetReviewsSuccess ? state.reviews.length : 0,
           itemBuilder: (context, index) {
             return Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 16.0.w),
+                padding: EdgeInsets.symmetric(horizontal: 16.0.w),
                 child: state is LoadingToGetReviews
                     ? const CustomScrollView()
                     : state is GetReviewsSuccess

@@ -15,6 +15,7 @@ class ProfileView extends StatelessWidget {
       create: (context) => ProfileDataCubit()..getUserProfileData(),
       child: Scaffold(
         body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
               verticalSpace(60.h),
