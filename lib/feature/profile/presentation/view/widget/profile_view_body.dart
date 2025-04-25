@@ -5,6 +5,8 @@ import 'package:i_health/core/constants/app_text_style.dart';
 import 'package:i_health/core/helper/spaceing.dart';
 import 'package:i_health/feature/profile/presentation/cubit/profile_data_cubit.dart';
 import 'package:i_health/feature/profile/presentation/view/widget/user_profile_modification.dart';
+import 'package:i_health/theme_provider.dart';
+import 'package:provider/provider.dart' as Colors show Provider;
 
 import '../section/loading_state_section.dart';
 
@@ -27,23 +29,51 @@ class ProfileViewBody extends StatelessWidget {
               ),
               Text(
                 state.profileData.fullName,
-                style: AppTextStyle.poppins50020,
+                style: AppTextStyle.poppins50020.copyWith(
+                  color: Colors.Provider.of<ThemeProvider>(context).isDarkTheme
+                      ? Colors.Provider.of<ThemeProvider>(context)
+                          .darkTheme
+                          .colorScheme
+                          .primary
+                      : Colors.Provider.of<ThemeProvider>(context)
+                          .lightTheme
+                          .colorScheme
+                          .primary,
+                ),
               ),
               SizedBox(
                 height: 10.h,
               ),
               Text(
                 state.profileData.email,
-                style: AppTextStyle.poppins40014
-                    .copyWith(color: const Color(0xffABAFB3)),
+                style: AppTextStyle.poppins40014.copyWith(
+                  color: Colors.Provider.of<ThemeProvider>(context).isDarkTheme
+                      ? Colors.Provider.of<ThemeProvider>(context)
+                          .darkTheme
+                          .colorScheme
+                          .primary
+                      : Colors.Provider.of<ThemeProvider>(context)
+                          .lightTheme
+                          .colorScheme
+                          .primary,
+                ),
               ),
               SizedBox(
                 height: 10.h,
               ),
               Text(
                 state.profileData.phoneNumber,
-                style: AppTextStyle.poppins40014
-                    .copyWith(color: const Color(0xffABAFB3)),
+                style: AppTextStyle.poppins40014.copyWith(
+                  color: Colors.Provider.of<ThemeProvider>(context).isDarkTheme
+                      ? Colors.Provider.of<ThemeProvider>(context)
+                          .darkTheme
+                          .colorScheme
+                          .primary
+                      : Colors.Provider.of<ThemeProvider>(context)
+                          .lightTheme
+                          .colorScheme
+                          .primary,
+                ),
               ),
               verticalSpace(35),
               const UserModification()

@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:i_health/core/constants/app_strings.dart';
 import 'package:i_health/core/functions/navigation.dart';
-import 'package:i_health/feature/home/Home.dart';
+import 'package:i_health/feature/home/home.dart';
 import 'package:i_health/feature/sign_in/presentation/cubit/sign_in_cubit.dart';
 
 import '../../../../../core/common/widget/custom_flutter_toast.dart';

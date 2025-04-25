@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:i_health/core/constants/app_colors.dart';
-import 'package:i_health/core/constants/app_strings.dart';
 import 'package:i_health/core/constants/assets.dart';
 import 'package:i_health/core/localization/app_localizations.dart';
 import 'package:i_health/feature/dictionary/presentation/view/dictionary_view.dart';
 import 'package:i_health/feature/home/view/home_view.dart';
 import 'package:i_health/feature/profile/presentation/view/profile_view.dart';
 import 'package:i_health/feature/review/presentation/view/review_screen.dart';
-import '../../../../../theme_provider.dart';
-import '../../../../../language_provider.dart';
+
 import '../maps/get_maps.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:provider/provider.dart';
-import '../../../../../core/constants/app_strings.dart';
-import '../../../../../core/constants/app_text_style.dart';
-import '../../../../../core/constants/assets.dart';
-import '../../../../../theme_provider.dart';
-import '../../../../../language_provider.dart';
+import 'package:i_health/core/constants/app_strings.dart';
+import 'package:i_health/core/constants/app_text_style.dart';
+import 'package:i_health/core/constants/assets.dart';
+import 'package:i_health/theme_provider.dart';
+import 'package:provider/provider.dart' as Colors show Provider;
 
 class ProfileViewAppBarSection extends StatefulWidget {
   const ProfileViewAppBarSection({super.key});
@@ -31,46 +30,18 @@ class _ProfileViewAppBarSectionState extends State<ProfileViewAppBarSection> {
             ),
             Text(
               AppStrings.iHealth,
-              style: AppTextStyle.poppins60030.copyWith(fontSize: 16),
-            ),
-            IconButton(
-              icon: s
-                  ? const Icon(Icons.nightlight_round)
-                  : const Icon(Icons.sunny),
-              onPressed: () {
-                setState(() {
-                  s = !s;
-                });
-                Provider.of<ThemeProvider>(context, listen: false)
-                    .toggleTheme();
-              },
-            ),
-            // أضف هذا الاستيراد في بداية الملف
-
-            // تعديل زر تغيير اللغة
-            IconButton(
-              icon: Provider.of<LanguageProvider>(context).isEnglish
-                  ? Text("en",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Provider.of<ThemeProvider>(context).isDarkTheme 
-                            ? Colors.white 
-                            : Colors.green,
-                        fontSize: 18,
-                      ))
-                  : Text("ع",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Provider.of<ThemeProvider>(context).isDarkTheme 
-                            ? Colors.white 
-                            : Colors.green,
-                        fontSize: 18,
-                      )),
-              onPressed: () {
-                Provider.of<LanguageProvider>(context, listen: false)
-                    .toggleLanguage();
-                setState(() {});
-              },
+              style: AppTextStyle.poppins60030.copyWith(
+                fontSize: 16,
+                color: Colors.Provider.of<ThemeProvider>(context).isDarkTheme
+                    ? Colors.Provider.of<ThemeProvider>(context)
+                        .darkTheme
+                        .colorScheme
+                        .primary
+                    : Colors.Provider.of<ThemeProvider>(context)
+                        .lightTheme
+                        .colorScheme
+                        .primary,
+              ),
             ),
           ],
         ),

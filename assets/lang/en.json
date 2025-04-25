@@ -60,14 +60,18 @@
   "iHealthMap": "IHealth Map",
   "aboutUs": "About Us",
   "appVersion": "Version: 1.2.0",
-  "appDescription": "SmartPharma is a powerful app designed to help users search for medicines, get detailed medical information, and order medicines online with ease."
-  ,"easyMedicineSearch": "Easy medicine search",
+  "appDescription": "SmartPharma is a powerful app designed to help users search for medicines, get detailed medical information, and order medicines online with ease.",
+  "easyMedicineSearch": "Easy medicine search",
   "aiConsultations": "AI-powered medical consultations",
   "orderMedicines": "Order medicines from nearby pharmacies",
   "contactUs": "📞 Contact Us:",
   "oldPassword": "Old Password",
-  "newPassword": "New Password", 
+  "newPassword": "New Password",
   "confirmNewPassword": "Confirm New Password",
   "fungal_infection_description": "Fungal infection is a common skin condition caused by fungi.",
-  "update": "Update"
+  "update": "Update",
+  "ImportanttNotice": "Important Notice Before We Start:\n Our chatbot provides initial suggestions based on the symptoms you enter.\nHowever, it may not always be accurate, and it is **not** a substitute for a real medical diagnosis.\nIf your condition is serious or your symptoms persist, please consult a doctor immediately",
+  "gotIt": "Got It",
+  "cancel": "Cancel",
+  "hi": "Hi"
 }

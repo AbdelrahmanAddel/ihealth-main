@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../constants/app_text_style.dart';
 
@@ -15,6 +16,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: 52.h,
       child: TextFormField(
         enabled: enable,
         validator: (value) {

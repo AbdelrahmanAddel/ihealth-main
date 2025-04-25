@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:i_health/feature/sign_in/data/data_source/local_data/shared_pre.dart';
 import 'core/constants/app_colors.dart';
 
 class ThemeProvider with ChangeNotifier {
-  bool _isDarkTheme = false;
+  bool _isDarkTheme = CacheHelper.getBool(
+    key: "isDarkMode",
+  );
 
-  bool get isDarkTheme => _isDarkTheme;
-
-  void toggleTheme() {
+  void toggleTheme() async {
+    await CacheHelper.setBool(key: "isDarkMode", value: !_isDarkTheme);
     _isDarkTheme = !_isDarkTheme;
     notifyListeners();
   }
+
+  bool get isDarkTheme => _isDarkTheme;
 
   ThemeData get lightTheme {
     return ThemeData(
@@ -72,7 +76,7 @@ class ThemeProvider with ChangeNotifier {
         titleLarge: TextStyle(color: Colors.white),
       ),
       iconTheme: const IconThemeData(color: Colors.white),
-      cardTheme: CardTheme(
+      cardTheme: const CardTheme(
         color: AppColors.darkBlue,
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(

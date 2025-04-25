@@ -1,0 +1,1 @@
+/Users/abdelrahmanadel/Development/projects/ihealth-main/build/app/intermediates/cxx/RelWithDebInfo/40z3x3g3/obj/arm64-v8a

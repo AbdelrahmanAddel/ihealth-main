@@ -11,7 +11,15 @@ class CacheHelper {
     await sharedPreferences.setString(key, value);
   }
 
-  static String getData({required String key}) {
+  static String getString({required String key}) {
     return sharedPreferences.getString(key) ?? 'NO VALUE';
+  }
+
+  static Future<bool> setBool({required String key, required bool value}) {
+    return sharedPreferences.setBool(key, value);
+  }
+
+  static bool getBool({required String key}) {
+    return sharedPreferences.getBool(key) ?? false;
   }
 }

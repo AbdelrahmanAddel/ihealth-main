@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:i_health/core/common/widget/custom_text_buttom.dart';
-import 'package:i_health/core/constants/app_strings.dart';
 import 'package:i_health/core/constants/app_text_style.dart';
 import 'package:i_health/core/functions/navigation.dart';
 import 'package:i_health/core/helper/spaceing.dart';
@@ -33,118 +32,171 @@ class _UserModificationState extends State<UserModification> {
       child: Column(
         children: [
           ProfileInfoRow(
-            prefixIcon: Icon(Icons.edit, color: 
-              Provider.of<ThemeProvider>(context).isDarkTheme 
-                ? Provider.of<ThemeProvider>(context).darkTheme.colorScheme.primary
-                : Provider.of<ThemeProvider>(context).lightTheme.colorScheme.primary
-            ),
-            rowText: 
-            AppLocalizations.of(context).translate("updataInfo"),
+            prefixIcon: Icon(Icons.edit,
+                color: Provider.of<ThemeProvider>(context).isDarkTheme
+                    ? Provider.of<ThemeProvider>(context)
+                        .darkTheme
+                        .colorScheme
+                        .primary
+                    : Provider.of<ThemeProvider>(context)
+                        .lightTheme
+                        .colorScheme
+                        .primary),
+            rowText: AppLocalizations.of(context).translate("updataInfo"),
             suffixIcon: IconButton(
                 onPressed: () {
                   Navigation.push(
                       context: context,
                       pushScreen: const UpdataUserProfileData());
                 },
-                icon: Icon(Icons.arrow_forward_ios, color: 
-                  Provider.of<ThemeProvider>(context).isDarkTheme 
-                    ? Provider.of<ThemeProvider>(context).darkTheme.colorScheme.primary
-                    : Provider.of<ThemeProvider>(context).lightTheme.colorScheme.primary
-                )), 
+                icon: Icon(Icons.arrow_forward_ios,
+                    color: Provider.of<ThemeProvider>(context).isDarkTheme
+                        ? Provider.of<ThemeProvider>(context)
+                            .darkTheme
+                            .colorScheme
+                            .primary
+                        : Provider.of<ThemeProvider>(context)
+                            .lightTheme
+                            .colorScheme
+                            .primary)),
           ),
           verticalSpace(20),
           ProfileInfoRow(
-              prefixIcon: Icon(Icons.lock, color: 
-                Provider.of<ThemeProvider>(context).isDarkTheme 
-                  ? Provider.of<ThemeProvider>(context).darkTheme.colorScheme.primary
-                  : Provider.of<ThemeProvider>(context).lightTheme.colorScheme.primary
-              ),
-              rowText: 
-
-              Provider.of<LanguageProvider>(context).isEnglish?"Change Password":"تغير كلمة المرور",
-              
+              prefixIcon: Icon(Icons.lock,
+                  color: Provider.of<ThemeProvider>(context).isDarkTheme
+                      ? Provider.of<ThemeProvider>(context)
+                          .darkTheme
+                          .colorScheme
+                          .primary
+                      : Provider.of<ThemeProvider>(context)
+                          .lightTheme
+                          .colorScheme
+                          .primary),
+              rowText: Provider.of<LanguageProvider>(context).isEnglish
+                  ? "Change Password"
+                  : "تغير كلمة المرور",
               suffixIcon: IconButton(
                 onPressed: () {
                   Navigation.push(
                       context: context, pushScreen: const ChangeUserPassword());
                 },
-                icon: Icon(Icons.arrow_forward_ios, color: 
-                  Provider.of<ThemeProvider>(context).isDarkTheme 
-                    ? Provider.of<ThemeProvider>(context).darkTheme.colorScheme.primary
-                    : Provider.of<ThemeProvider>(context).lightTheme.colorScheme.primary
-                ),
+                icon: Icon(Icons.arrow_forward_ios,
+                    color: Provider.of<ThemeProvider>(context).isDarkTheme
+                        ? Provider.of<ThemeProvider>(context)
+                            .darkTheme
+                            .colorScheme
+                            .primary
+                        : Provider.of<ThemeProvider>(context)
+                            .lightTheme
+                            .colorScheme
+                            .primary),
               )),
           verticalSpace(20),
           ProfileInfoRow(
-              prefixIcon: Icon(Icons.info, color: 
-                Provider.of<ThemeProvider>(context).isDarkTheme 
-                  ? Provider.of<ThemeProvider>(context).darkTheme.colorScheme.primary
-                  : Provider.of<ThemeProvider>(context).lightTheme.colorScheme.primary
-              ),
-              rowText: 
-              AppLocalizations.of(context).translate("about"),
+              prefixIcon: Icon(Icons.info,
+                  color: Provider.of<ThemeProvider>(context).isDarkTheme
+                      ? Provider.of<ThemeProvider>(context)
+                          .darkTheme
+                          .colorScheme
+                          .primary
+                      : Provider.of<ThemeProvider>(context)
+                          .lightTheme
+                          .colorScheme
+                          .primary),
+              rowText: AppLocalizations.of(context).translate("about"),
               suffixIcon: IconButton(
                 onPressed: () {
                   Navigation.push(
                       context: context, pushScreen: const AboutUsPage());
                 },
-                icon: Icon(Icons.arrow_forward_ios, color: 
-                  Provider.of<ThemeProvider>(context).isDarkTheme 
-                    ? Provider.of<ThemeProvider>(context).darkTheme.colorScheme.primary
-                    : Provider.of<ThemeProvider>(context).lightTheme.colorScheme.primary
-          
-                ),
+                icon: Icon(Icons.arrow_forward_ios,
+                    color: Provider.of<ThemeProvider>(context).isDarkTheme
+                        ? Provider.of<ThemeProvider>(context)
+                            .darkTheme
+                            .colorScheme
+                            .primary
+                        : Provider.of<ThemeProvider>(context)
+                            .lightTheme
+                            .colorScheme
+                            .primary),
               )),
-               verticalSpace(20),
+          verticalSpace(20),
           ProfileInfoRow(
-            prefixIcon: Icon(Icons.dark_mode, color: 
-              Provider.of<ThemeProvider>(context).isDarkTheme 
-                ? Provider.of<ThemeProvider>(context).darkTheme.colorScheme.primary
-                : Provider.of<ThemeProvider>(context).lightTheme.colorScheme.primary
-            ),
-            rowText: 
-            Provider.of<LanguageProvider>(context).isEnglish?"dark mode":" الوضع الليلي",
+            prefixIcon: Icon(
+                Provider.of<ThemeProvider>(context).isDarkTheme
+                    ? Icons.dark_mode
+                    : Icons.light_mode,
+                color: Provider.of<ThemeProvider>(context).isDarkTheme
+                    ? Provider.of<ThemeProvider>(context)
+                        .darkTheme
+                        .colorScheme
+                        .primary
+                    : Provider.of<ThemeProvider>(context)
+                        .lightTheme
+                        .colorScheme
+                        .primary),
+            rowText: Provider.of<LanguageProvider>(context).isEnglish
+                ? "Dark Mode"
+                : " الوضع الليلي",
             suffixIcon: IconButton(
                 onPressed: () {
                   setState(() {
                     Provider.of<ThemeProvider>(context, listen: false)
-                    .toggleTheme();
+                        .toggleTheme();
                   });
-                    
                 },
-                icon: Icon(Icons.arrow_forward_ios, color: 
-                  Provider.of<ThemeProvider>(context).isDarkTheme 
-                    ? Provider.of<ThemeProvider>(context).darkTheme.colorScheme.primary
-                    : Provider.of<ThemeProvider>(context).lightTheme.colorScheme.primary
-                )),
+                icon: Icon(
+                    Provider.of<ThemeProvider>(context).isDarkTheme
+                        ? Icons.check_circle
+                        : Icons.circle_outlined,
+                    color: Provider.of<ThemeProvider>(context).isDarkTheme
+                        ? Provider.of<ThemeProvider>(context)
+                            .darkTheme
+                            .colorScheme
+                            .primary
+                        : Provider.of<ThemeProvider>(context)
+                            .lightTheme
+                            .colorScheme
+                            .primary)),
           ),
           verticalSpace(20),
           ProfileInfoRow(
-            prefixIcon: Icon(Icons.language, color: 
-              Provider.of<ThemeProvider>(context).isDarkTheme 
-                ? Provider.of<ThemeProvider>(context).darkTheme.colorScheme.primary
-                : Provider.of<ThemeProvider>(context).lightTheme.colorScheme.primary
-            ),
-            rowText: 
-            Provider.of<LanguageProvider>(context).isEnglish?"change language":"تغيير اللغة",
-            
+            prefixIcon: Icon(Icons.language,
+                color: Provider.of<ThemeProvider>(context).isDarkTheme
+                    ? Provider.of<ThemeProvider>(context)
+                        .darkTheme
+                        .colorScheme
+                        .primary
+                    : Provider.of<ThemeProvider>(context)
+                        .lightTheme
+                        .colorScheme
+                        .primary),
+            rowText: Provider.of<LanguageProvider>(context).isEnglish
+                ? "Change language"
+                : "تغيير اللغة",
             suffixIcon: IconButton(
                 onPressed: () {
-                 Provider.of<LanguageProvider>(context, listen: false)
-                    .toggleLanguage();
-                setState(() {});
+                  Provider.of<LanguageProvider>(context, listen: false)
+                      .toggleLanguage();
+                  setState(() {});
                 },
-                icon: Icon(Icons.arrow_forward_ios, color: 
-                  Provider.of<ThemeProvider>(context).isDarkTheme 
-                    ? Provider.of<ThemeProvider>(context).darkTheme.colorScheme.primary
-                    : Provider.of<ThemeProvider>(context).lightTheme.colorScheme.primary
-                )),
+                icon: Icon(Icons.arrow_forward_ios,
+                    color: Provider.of<ThemeProvider>(context).isDarkTheme
+                        ? Provider.of<ThemeProvider>(context)
+                            .darkTheme
+                            .colorScheme
+                            .primary
+                        : Provider.of<ThemeProvider>(context)
+                            .lightTheme
+                            .colorScheme
+                            .primary)),
           ),
           verticalSpace(60),
           CustomTextButtom(
             child: Text(
               AppLocalizations.of(context).translate("logout"),
-              style: AppTextStyle.poppins40014.copyWith(color: Color(0xFFFFFFFF)),
+              style:
+                  AppTextStyle.poppins40014.copyWith(color: Color(0xFFFFFFFF)),
             ),
             onPressed: () async {
               await FirebaseAuth.instance.signOut();

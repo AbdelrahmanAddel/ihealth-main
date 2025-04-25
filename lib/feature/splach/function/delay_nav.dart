@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:i_health/core/constants/app_strings.dart';
-import 'package:i_health/feature/home/Home.dart';
+import 'package:i_health/feature/home/home.dart';
 import 'package:i_health/feature/sign_in/data/data_source/local_data/shared_pre.dart';
 import 'package:i_health/feature/sign_in/presentation/view/sign_in_view.dart';
 

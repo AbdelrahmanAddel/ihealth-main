@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:i_health/core/dependency_injection/service_locator.dart';
+import 'package:i_health/feature/chat/data/model/chat_response.dart';
 import 'package:i_health/feature/chat/domain/usecase/send_data_usecase.dart';
 import 'package:i_health/feature/dictionary/data/diease_model.dart';
 import 'package:i_health/feature/dictionary/data/disease_info.dart';
@@ -15,10 +16,15 @@ class ChatCubit extends Cubit<ChatState> {
   }
   final chatFormFieldController = TextEditingController();
   late SpeechToText speechToText;
-  List<String> chatMessages = [];
+  List<ChatResponseModel> chatMessages = [];
   List<String> userMessage = [];
   String userText = '';
   bool isListening = false;
+  bool failureResponce = false;
+  String? diease;
+  String? medication;
+  String? lifeStyle;
+  String? doctorSpecialization;
 
   void initSpeechToText() async {
     speechToText = SpeechToText();
@@ -59,7 +65,6 @@ class ChatCubit extends Cubit<ChatState> {
       },
       (success) {
         if (success.isEmpty) {
-          chatMessages.add("Received an empty response from the API.");
           emit(SendAndGetDataSuccess());
           return;
         }
@@ -67,20 +72,29 @@ class ChatCubit extends Cubit<ChatState> {
         userMessage.add(chatFormFieldController.text);
 
         final diseaseData = diseaseInfo.firstWhere(
-            (test) => test.disease
-                .split(', ') // تحويل الـ String إلى List<String>
-                .any((item) =>
-                    item.toLowerCase().trim() == success.toLowerCase().trim()),
+            (test) => test.disease.split(', ').any((item) =>
+                item.toLowerCase().trim() == success.toLowerCase().trim()),
             orElse: () => DiseaseInfoModel.empty());
 
         if (diseaseData.disease.isNotEmpty) {
           chatMessages.add(
-              'I suspect that you might have  $success \n I Recommend: ${diseaseData.lifestyle} We also advise consulting a specialist in ${diseaseData.doctorSpecialization} for personalized guidance and treatment.');
+            ChatResponseModel(
+              userMessage: chatFormFieldController.text,
+              disease: success,
+              medication: diseaseData.medication,
+              lifestyle: diseaseData.lifestyle,
+              doctorSpecialization: diseaseData.doctorSpecialization,
+              isFailure: false,
+            ),
+          );
         } else {
-          chatMessages.add("Sorry, I couldn't find relevant information.");
+          chatMessages.add(ChatResponseModel(
+            userMessage: chatFormFieldController.text,
+            botMessage: "Sorry, I couldn't find relevant information.",
+            isFailure: true,
+          ));
         }
 
-        print(success);
         emit(SendAndGetDataSuccess());
       },
     );

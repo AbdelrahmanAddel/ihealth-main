@@ -1,0 +1,2 @@
+/Users/abdelrahmanadel/Development/projects/ihealth-main/android/app/.cxx/RelWithDebInfo/40z3x3g3/x86/CMakeFiles/edit_cache.dir
+/Users/abdelrahmanadel/Development/projects/ihealth-main/android/app/.cxx/RelWithDebInfo/40z3x3g3/x86/CMakeFiles/rebuild_cache.dir

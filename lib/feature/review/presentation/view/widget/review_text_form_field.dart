@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:i_health/core/constants/app_text_style.dart';
 import 'package:i_health/core/localization/app_localizations.dart';
 import 'package:i_health/feature/review/presentation/cubit/reviews_cubit.dart';
+import 'package:i_health/theme_provider.dart';
+import 'package:provider/provider.dart' as Colors show Provider;
 
 class ReviewTextFormField extends StatelessWidget {
   const ReviewTextFormField({
@@ -21,13 +23,31 @@ class ReviewTextFormField extends StatelessWidget {
           return TextFormField(
             controller: cubit.reviewController,
             maxLines: 5,
+            style: AppTextStyle.poppins40014.copyWith(
+              color: Colors.Provider.of<ThemeProvider>(context).isDarkTheme
+                  ? Colors.Provider.of<ThemeProvider>(context)
+                      .darkTheme
+                      .colorScheme
+                      .onSecondary
+                  : Colors.Provider.of<ThemeProvider>(context)
+                      .lightTheme
+                      .colorScheme
+                      .primary,
+            ),
             decoration: InputDecoration(
               labelText:
-                  //AppStrings.addYourReview
                   AppLocalizations.of(context).translate("addYourReview"),
               labelStyle: AppTextStyle.poppins50020.copyWith(
                 fontSize: 15.sp,
-                color: Colors.black,
+                color: Colors.Provider.of<ThemeProvider>(context).isDarkTheme
+                    ? Colors.Provider.of<ThemeProvider>(context)
+                        .darkTheme
+                        .colorScheme
+                        .onSecondary
+                    : Colors.Provider.of<ThemeProvider>(context)
+                        .lightTheme
+                        .colorScheme
+                        .primary,
               ),
               filled: true,
               fillColor: const Color.fromARGB(255, 255, 250, 250),
@@ -37,17 +57,14 @@ class ReviewTextFormField extends StatelessWidget {
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30.r),
-                borderSide: BorderSide(
-                  color: Colors.grey.shade500,
+                borderSide: const BorderSide(
                   width: 1,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20.r),
                 borderSide: BorderSide(
-                  color:
-                      //AppColors.greenButton
-                      Theme.of(context).colorScheme.secondary,
+                  color: Theme.of(context).colorScheme.secondary,
                   width: 2.5,
                 ),
               ),

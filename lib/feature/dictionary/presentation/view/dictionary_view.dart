@@ -13,7 +13,7 @@ class DictionaryView extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            dictionaryAppBar(),
+            dictionaryAppBar(context),
             SizedBox(
               height: 30.h,
             ),

@@ -30,12 +30,12 @@ class SignInCubit extends Cubit<SignInState> {
   saveUserName() async {
     final userData = await FirebaseFirestore.instance
         .collection(FireBaseString.user)
-        .doc(CacheHelper.getData(key: AppStrings.userId))
+        .doc(CacheHelper.getString(key: AppStrings.userId))
         .get();
 
     final username = await userData.get(FireBaseString.fullName);
 
     await CacheHelper.setString(value: username, key: AppStrings.userName);
-    print(CacheHelper.getData(key: AppStrings.userName));
+    print(CacheHelper.getString(key: AppStrings.userName));
   }
 }

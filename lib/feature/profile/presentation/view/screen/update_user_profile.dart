@@ -4,11 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:i_health/core/common/widget/custom_flutter_toast.dart';
 import 'package:i_health/core/common/widget/custom_text_buttom.dart';
 import 'package:i_health/core/common/widget/custom_text_form_field.dart';
-import 'package:i_health/core/constants/app_colors.dart';
 import 'package:i_health/core/constants/app_text_style.dart';
 import 'package:i_health/core/functions/navigation.dart';
 import 'package:i_health/core/helper/spaceing.dart';
-import 'package:i_health/feature/home/Home.dart';
+import 'package:i_health/feature/home/home.dart';
 import 'package:i_health/feature/profile/presentation/cubit/profile_data_cubit.dart';
 import 'package:i_health/feature/profile/presentation/view/section/profile_view_appbar_section.dart';
 import 'package:i_health/core/localization/app_localizations.dart';
@@ -69,16 +68,17 @@ class UpdataUserProfileData extends StatelessWidget {
                                   verticalSpace(20),
                                   CustomTextButtom(
                                     child: state is LoadingToUpdataUserData
-                                        ?  Center(
+                                        ? Center(
                                             child: CircularProgressIndicator(
-                                              
-                                              color:Theme.of(context).colorScheme.onPrimary,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .onPrimary,
                                               // AppColors.greenButton
-                                              
                                             ),
                                           )
                                         : Text(
-                                            AppLocalizations.of(context).translate("update"),
+                                            AppLocalizations.of(context)
+                                                .translate("update"),
                                             style: AppTextStyle.poppins40014
                                                 .copyWith(color: Colors.white),
                                           ),
@@ -97,10 +97,10 @@ class UpdataUserProfileData extends StatelessWidget {
                       )
                     : state is FailureToGetUserProfileData
                         ? Center(child: Text(state.errorMessage))
-                        :  Center(
+                        : Center(
                             child: CircularProgressIndicator(
-                             // color: AppColors.greenButton
-                                color:  Theme.of(context).colorScheme.onPrimary,
+                              // color: AppColors.greenButton
+                              color: Theme.of(context).colorScheme.onPrimary,
                             ),
                           )),
           );
@@ -109,10 +109,7 @@ class UpdataUserProfileData extends StatelessWidget {
           if (state is UpdataUserDataSuccess) {
             customFlutterToast(
                 message: state.successMessage,
-                color:
-                    //AppColors.greenButton
-
-                    Theme.of(context).colorScheme.onPrimary);
+                color: Theme.of(context).colorScheme.onPrimary);
             Navigation.pushRepl(
                 context: context, pushScreen: const HomeScreen());
           } else if (state is FailureToUpdataUserData) {

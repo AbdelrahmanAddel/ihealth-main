@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:i_health/core/localization/app_localizations.dart';
 
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/constants/app_text_style.dart';
 import '../../../../core/constants/assets.dart';
 

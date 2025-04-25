@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:i_health/core/constants/app_colors.dart';
 import 'package:i_health/core/constants/assets.dart';
-import 'package:i_health/core/localization/app_localizations.dart';
+import 'package:i_health/feature/maps/widgets/maps_app_bar.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
@@ -200,15 +200,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          //'IHealth Map'
-          AppLocalizations.of(context).translate("iHealthMap"),
-
-          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
-        ),
-      ),
+      appBar: mapsAppBar(context),
       body: currentLocation == null
           ? const Center(child: CircularProgressIndicator())
           : FlutterMap(
@@ -250,7 +242,7 @@ class _MapScreenState extends State<MapScreen> {
           fetchNearbyPlaces("pharmacy");
           fetchNearbyPlaces("hospital");
         },
-        child: const Icon(
+        child: Icon(
           Icons.location_searching_rounded,
           color: Colors.white,
         ),
