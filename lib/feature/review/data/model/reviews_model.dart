@@ -5,12 +5,17 @@ class ReviewsModel {
   final String review;
   final Timestamp timestamp;
   final String userName;
+  final String? profileImage;
 
   ReviewsModel(
-      {required this.userName, required this.review, required this.timestamp});
+      {this.profileImage,
+      required this.userName,
+      required this.review,
+      required this.timestamp});
 
   factory ReviewsModel.fromJson(Map<String, dynamic> jsonData) {
     return ReviewsModel(
+        profileImage: jsonData[FireBaseString.profileImage],
         userName: jsonData[FireBaseString.userName],
         review: jsonData[FireBaseString.reviews],
         timestamp: jsonData[FireBaseString.timestamp]);
@@ -20,6 +25,7 @@ class ReviewsModel {
       FireBaseString.userName: userName,
       FireBaseString.reviews: review,
       FireBaseString.timestamp: timestamp,
+      FireBaseString.profileImage: profileImage,
     };
   }
 }

@@ -16,12 +16,13 @@ class GetAddReviewsImpl extends GetAddReviews {
   @override
   Future<Either<Failure, String>> addReviews(
       {required String review, required Timestamp timestamp}) async {
-    final userDoc = await FirebaseFirestore.instance
+    DocumentSnapshot userDoc = await FirebaseFirestore.instance
         .collection(FireBaseString.user)
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .get();
 
     ReviewsModel reviewsModel = ReviewsModel(
+        profileImage: userDoc.get(FireBaseString.profileImage),
         review: review,
         timestamp: timestamp,
         userName: userDoc.get(FireBaseString.fullName));

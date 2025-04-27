@@ -19,8 +19,8 @@ class CustomReviewButton extends StatelessWidget {
         final cubit = BlocProvider.of<ReviewsCubit>(context);
         return GestureDetector(
           child: Container(
-            width: 90.w,
-            height: 45.h,
+            width: 80.w,
+            height: 36.h,
             decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.primary,
                 borderRadius: BorderRadius.circular(20.r)),
@@ -51,6 +51,7 @@ class CustomReviewButton extends StatelessWidget {
           onTap: () {
             if (cubit.reviewController.text.isNotEmpty) {
               cubit.addReview();
+              cubit.reviewController.clear();
             } else {
               customFlutterToast(message: AppStrings.reviewCantbe);
             }

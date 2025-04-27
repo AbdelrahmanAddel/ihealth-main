@@ -35,7 +35,7 @@ class ReviewView extends StatelessWidget {
                 ),
                 const ReviewTextFormField(),
                 SizedBox(
-                  height: 10.h,
+                  height: 13.h,
                 ),
                 CustomReviewButton(formKey: formKey),
                 SizedBox(

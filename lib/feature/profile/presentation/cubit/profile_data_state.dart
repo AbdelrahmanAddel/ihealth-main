@@ -32,12 +32,29 @@ final class FailureToUpdataUserData extends ProfileDataState {
 
   FailureToUpdataUserData({required this.errorMessage});
 }
+
 final class LoadingToUpdateUserPassword extends ProfileDataState {}
+
+final class LoadingToPickUserProfileImage extends ProfileDataState {}
+
+final class PickUserProfileImageSuccess extends ProfileDataState {
+  final String sucessMessage;
+
+  PickUserProfileImageSuccess({required this.sucessMessage});
+}
+
+final class PickUserProfileImageFailure extends ProfileDataState {
+  final String errorMessage;
+
+  PickUserProfileImageFailure({required this.errorMessage});
+}
+
 final class UpdateUserPasswordSuccess extends ProfileDataState {
   final String successMessage;
 
   UpdateUserPasswordSuccess({required this.successMessage});
 }
+
 final class FailureToUpdateuserPassword extends ProfileDataState {
   final String errorMessage;
 

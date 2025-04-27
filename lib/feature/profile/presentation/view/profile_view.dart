@@ -21,7 +21,7 @@ class ProfileView extends StatelessWidget {
               verticalSpace(60.h),
               const ProfileViewAppBarSection(),
               verticalSpace(55.h),
-              const ProfileViewBody()
+              ProfileViewBody()
             ],
           ),
         ),

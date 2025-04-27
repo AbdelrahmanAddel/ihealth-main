@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:i_health/core/common/widget/custom_flutter_toast.dart';
 import 'package:i_health/core/constants/app_text_style.dart';
+import 'package:i_health/core/functions/navigation.dart';
 import 'package:i_health/core/helper/spaceing.dart';
+import 'package:i_health/feature/home/home.dart';
+import 'package:i_health/feature/home/view/home_view.dart';
+import 'package:i_health/feature/profile/domain/entitiy/user_profile_entity.dart';
 import 'package:i_health/feature/profile/presentation/cubit/profile_data_cubit.dart';
+import 'package:i_health/feature/profile/presentation/view/profile_view.dart';
 import 'package:i_health/feature/profile/presentation/view/widget/user_profile_modification.dart';
 import 'package:i_health/theme_provider.dart';
 import 'package:provider/provider.dart' as Colors show Provider;
@@ -15,78 +21,125 @@ class ProfileViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfileDataCubit, ProfileDataState>(
-      builder: (context, state) {
-        return Column(
-          children: [
-            if (state is GetUserProfileDataSuccess) ...[
-              CircleAvatar(
-                backgroundColor: const Color(0xffC4C4C4),
-                radius: 90.r,
-              ),
-              SizedBox(
-                height: 41.h,
-              ),
-              Text(
-                state.profileData.fullName,
-                style: AppTextStyle.poppins50020.copyWith(
-                  color: Colors.Provider.of<ThemeProvider>(context).isDarkTheme
-                      ? Colors.Provider.of<ThemeProvider>(context)
-                          .darkTheme
-                          .colorScheme
-                          .primary
-                      : Colors.Provider.of<ThemeProvider>(context)
-                          .lightTheme
-                          .colorScheme
-                          .primary,
+    return BlocListener<ProfileDataCubit, ProfileDataState>(
+      listener: (context, state) async {
+        if (state is PickUserProfileImageSuccess) {
+          Navigation.pushRepl(context: context, pushScreen: const HomeScreen());
+
+          await customSuccessFlutterToast(
+            message: 'Change Image Success',
+          );
+        }
+      },
+      child: BlocBuilder<ProfileDataCubit, ProfileDataState>(
+        builder: (context, state) {
+          if (state is LoadingToGetUserProfileData ||
+              state is LoadingToPickUserProfileImage) {
+            return loadingStateSection(context);
+          } else if (state is GetUserProfileDataSuccess) {
+            final userProfileEntity = state.profileData;
+
+            return Column(
+              children: [
+                ProfileImage(userProfileEntity: userProfileEntity),
+                SizedBox(height: 41.h),
+                Text(
+                  userProfileEntity.fullName,
+                  style: AppTextStyle.poppins50020.copyWith(
+                    color:
+                        Colors.Provider.of<ThemeProvider>(context).isDarkTheme
+                            ? Colors.Provider.of<ThemeProvider>(context)
+                                .darkTheme
+                                .colorScheme
+                                .primary
+                            : Colors.Provider.of<ThemeProvider>(context)
+                                .lightTheme
+                                .colorScheme
+                                .primary,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              Text(
-                state.profileData.email,
-                style: AppTextStyle.poppins40014.copyWith(
-                  color: Colors.Provider.of<ThemeProvider>(context).isDarkTheme
-                      ? Colors.Provider.of<ThemeProvider>(context)
-                          .darkTheme
-                          .colorScheme
-                          .primary
-                      : Colors.Provider.of<ThemeProvider>(context)
-                          .lightTheme
-                          .colorScheme
-                          .primary,
+                SizedBox(height: 10.h),
+                Text(
+                  userProfileEntity.email,
+                  style: AppTextStyle.poppins40014.copyWith(
+                    color:
+                        Colors.Provider.of<ThemeProvider>(context).isDarkTheme
+                            ? Colors.Provider.of<ThemeProvider>(context)
+                                .darkTheme
+                                .colorScheme
+                                .primary
+                            : Colors.Provider.of<ThemeProvider>(context)
+                                .lightTheme
+                                .colorScheme
+                                .primary,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              Text(
-                state.profileData.phoneNumber,
-                style: AppTextStyle.poppins40014.copyWith(
-                  color: Colors.Provider.of<ThemeProvider>(context).isDarkTheme
-                      ? Colors.Provider.of<ThemeProvider>(context)
-                          .darkTheme
-                          .colorScheme
-                          .primary
-                      : Colors.Provider.of<ThemeProvider>(context)
-                          .lightTheme
-                          .colorScheme
-                          .primary,
+                SizedBox(height: 10.h),
+                Text(
+                  userProfileEntity.phoneNumber,
+                  style: AppTextStyle.poppins40014.copyWith(
+                    color:
+                        Colors.Provider.of<ThemeProvider>(context).isDarkTheme
+                            ? Colors.Provider.of<ThemeProvider>(context)
+                                .darkTheme
+                                .colorScheme
+                                .primary
+                            : Colors.Provider.of<ThemeProvider>(context)
+                                .lightTheme
+                                .colorScheme
+                                .primary,
+                  ),
                 ),
-              ),
-              verticalSpace(35),
-              const UserModification()
-            ] else if (state is FailureToGetUserProfileData) ...[
-              Text(
-                state.errorMessage,
+                verticalSpace(35),
+                const UserModification()
+              ],
+            );
+          } else if (state is PickUserProfileImageSuccess) {
+            // هنا نعرض رسالة نجاح فقط من PickUserProfileImageSuccess
+            return Center(
+              child: Text(
+                'Image picked successfully!',
                 style: AppTextStyle.poppins50020,
               ),
-            ] else
-              loadingStateSection(context)
-          ],
-        );
+            );
+          } else if (state is FailureToGetUserProfileData ||
+              state is PickUserProfileImageFailure) {
+            return Center(
+              child: Text(
+                (state as dynamic).errorMessage,
+                style: AppTextStyle.poppins50020,
+              ),
+            );
+          } else {
+            return loadingStateSection(context);
+          }
+        },
+      ),
+    );
+  }
+}
+
+class ProfileImage extends StatelessWidget {
+  const ProfileImage({
+    super.key,
+    required this.userProfileEntity,
+  });
+
+  final UserProfileEntity userProfileEntity;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () async {
+        await context.read<ProfileDataCubit>().pickUserProfileImage();
       },
+      child: CircleAvatar(
+        backgroundColor: const Color(0xffC4C4C4),
+        backgroundImage: userProfileEntity.imageUrl != null
+            ? NetworkImage(userProfileEntity.imageUrl!)
+            : const AssetImage("assest/images/user.png") as ImageProvider,
+        radius: 90.r,
+      ),
     );
   }
 }

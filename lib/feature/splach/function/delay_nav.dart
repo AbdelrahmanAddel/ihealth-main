@@ -9,8 +9,11 @@ import '../../../core/functions/navigation.dart';
 
 void delayNavigator({required BuildContext context}) {
   Future.delayed(const Duration(seconds: 3), () {
-    if (CacheHelper.sharedPreferences.getString(AppStrings.userId) != null) {
-      if (FirebaseAuth.instance.currentUser!.emailVerified) {
+    final userId = CacheHelper.sharedPreferences.getString(AppStrings.userId);
+    final user = FirebaseAuth.instance.currentUser;
+
+    if (userId != null && user != null) {
+      if (user.emailVerified) {
         Navigation.push(context: context, pushScreen: const HomeScreen());
       } else {
         Navigation.push(context: context, pushScreen: const SignInView());

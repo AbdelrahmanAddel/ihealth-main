@@ -35,8 +35,10 @@ final serviceLocator = GetIt.instance;
 void setupLocator() {
   //! SIGN UP
   serviceLocator.registerSingleton<SaveUserData>(SaveUserDataImpl());
-  serviceLocator.registerSingleton<FireBaseSignUp>(FireBaseSignUpImplementation());
-  serviceLocator.registerSingleton<SingUpRepositiry>(SignUpRepositryImplementation());
+  serviceLocator
+      .registerSingleton<FireBaseSignUp>(FireBaseSignUpImplementation());
+  serviceLocator
+      .registerSingleton<SingUpRepositiry>(SignUpRepositryImplementation());
   serviceLocator.registerSingleton(SignUpUsecase());
 
   //! SIGN IN
@@ -45,10 +47,12 @@ void setupLocator() {
   serviceLocator.registerSingleton(SignInUsecase());
 
   //! Profile
-  serviceLocator.registerSingleton<GetUserProfileRepo>(GetUserProfileRepoImple());
-  serviceLocator.registerSingleton<GetUserprofileData>(GetUserProfileDataImple());
+  serviceLocator
+      .registerSingleton<GetUserProfileRepo>(GetUserProfileRepoImple());
+  serviceLocator
+      .registerSingleton<GetUserprofileData>(GetUserProfileDataImple());
   serviceLocator.registerSingleton(GetUserProfileUescase());
-  
+
   //! Profile (Update Data)
   serviceLocator.registerSingleton(UpdataUserData());
   serviceLocator.registerSingleton(UpdateUserDataUsecase());
@@ -56,8 +60,10 @@ void setupLocator() {
 
   //! Profile (Update Password)
   serviceLocator.registerSingleton(UpdatePasswordUsecase());
-  serviceLocator.registerSingleton<UpdateUserPasswordRepositiry>(UpdateUserPasswordImple());
-  serviceLocator.registerSingleton<UpdateUserDataRepositiry>(UpdataUserDataRepositiryImplentation());
+  serviceLocator.registerSingleton<UpdateUserPasswordRepositiry>(
+      UpdateUserPasswordImple());
+  serviceLocator.registerSingleton<UpdateUserDataRepositiry>(
+      UpdataUserDataRepositiryImplentation());
 
   //! Chat
   serviceLocator.registerSingleton<SendDataToApi>(SendDataToApiImpl());

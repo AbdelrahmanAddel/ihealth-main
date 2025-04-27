@@ -35,13 +35,12 @@ class ReviewListContent extends StatelessWidget {
           Row(
             children: [
               CircleAvatar(
-                backgroundColor: Theme.of(context).colorScheme.primary,
-                radius: 22.r,
-                child: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 30.sp,
-                ),
+                backgroundImage: state.reviews[index].profileImage == null
+                    ? const AssetImage('assest/images/user.png')
+                    : NetworkImage(
+                        state.reviews[index].profileImage!,
+                      ),
+                radius: 20.r,
               ),
               SizedBox(width: 10.w),
               Expanded(

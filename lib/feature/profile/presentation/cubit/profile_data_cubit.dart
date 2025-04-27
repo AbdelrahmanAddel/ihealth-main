@@ -1,8 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:i_health/core/dependency_injection/service_locator.dart';
+import 'package:i_health/feature/profile/data/data_source/firebase/user_profile_picture_service.dart';
+import 'package:i_health/feature/profile/data/repositiry/get_user_profile_picture_imple.dart';
 import 'package:i_health/feature/profile/domain/entitiy/user_profile_entity.dart';
 import 'package:i_health/feature/profile/domain/usecase/get_user_profile_uescase.dart';
+import 'package:i_health/feature/profile/domain/usecase/pick_user_profile_usecase.dart';
 import 'package:i_health/feature/profile/domain/usecase/update_password_usecase.dart';
 import 'package:i_health/feature/profile/domain/usecase/update_user_data_usecase.dart';
 
@@ -15,6 +18,7 @@ class ProfileDataCubit extends Cubit<ProfileDataState> {
   TextEditingController password = TextEditingController();
   TextEditingController oldPassowrd = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
+
   final formKey = GlobalKey<FormState>();
 
   getUserProfileData() async {
@@ -50,5 +54,16 @@ class ProfileDataCubit extends Cubit<ProfileDataState> {
         (failure) => emit(
             FailureToUpdateuserPassword(errorMessage: failure.errorMessage)),
         (success) => emit(UpdateUserPasswordSuccess(successMessage: success)));
+  }
+
+  Future<void> pickUserProfileImage() async {
+    emit(LoadingToPickUserProfileImage());
+    PickUserProfileUsecase pickUserProfileUsecase = PickUserProfileUsecase(
+        getUserProfilePicture:
+            GetUserProfilePictureRepositoryImple(GetUserProfileDataImple()));
+    final responce = await pickUserProfileUsecase.call();
+    responce.fold(
+        (failure) => emit(PickUserProfileImageFailure(errorMessage: failure)),
+        (success) => emit(PickUserProfileImageSuccess(sucessMessage: success)));
   }
 }

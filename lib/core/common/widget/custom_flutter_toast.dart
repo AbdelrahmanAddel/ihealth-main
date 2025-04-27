@@ -11,3 +11,15 @@ Future<bool?> customFlutterToast({required String message, Color? color}) {
       textColor: Colors.white,
       fontSize: 16.0);
 }
+
+Future<bool?> customSuccessFlutterToast(
+    {required String message, Color? color}) {
+  return Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 1,
+      backgroundColor: color ?? Colors.green,
+      textColor: Colors.white,
+      fontSize: 18.0);
+}
