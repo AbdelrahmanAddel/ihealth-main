@@ -47,7 +47,6 @@ Type 2 diabetes is often caused by an unhealthy lifestyle, such as consuming sug
 ✅ Exercise for 30 minutes daily (walking, running, or swimming).
 ✅ Drink water instead of sodas and canned juices.
 
-🔗 Read more about diabetes in our medical dictionary (🔗 link here).
 
 2️⃣ High Blood Pressure (Hypertension) 🫀
 🔹 Why Does It Happen?
@@ -59,7 +58,6 @@ Consuming large amounts of salt, lack of movement, and chronic stress can lead t
 ✅ Avoid excessive caffeine-rich drinks like coffee.
 ✅ Practice relaxation exercises like yoga and deep breathing to reduce stress.
 
-🔗 Read more about high blood pressure in our medical dictionary (🔗 link here).
 
 3️⃣ Stomach Ulcer 🤕
 🔹 Why Does It Happen?
@@ -71,7 +69,6 @@ One of the main causes of stomach ulcers is excessive use of painkillers or infe
 ✅ Eat yogurt and probiotic-rich foods to support digestive health.
 ✅ Reduce stress and anxiety as they increase the risk of ulcers.
 
-🔗 Read more about stomach ulcers in our medical dictionary (🔗 link here).
 
 4️⃣ Anemia 🩸
 🔹 Why Does It Happen?
@@ -83,7 +80,6 @@ Anemia results from a deficiency of iron or vitamins in the body, leading to fat
 ✅ Avoid tea and coffee immediately after eating as they reduce iron absorption.
 ✅ Conduct regular tests for iron and hemoglobin levels.
 
-🔗 Read more about anemia in our medical dictionary (🔗 link here).
 
 5️⃣ Arthritis 🦴
 🔹 Why Does It Happen?
@@ -94,8 +90,6 @@ Sitting for long periods, lack of physical activity, and deficiency of certain n
 ✅ Eat foods rich in omega-3 fatty acids like fish and nuts.
 ✅ Avoid excess weight as it increases pressure on the joints.
 ✅ Drink enough water to maintain joint flexibility.
-
-🔗 Read more about arthritis in our medical dictionary (🔗 link here).
 
 💡 Conclusion
 "Prevention is better than cure," and adopting a healthy lifestyle can protect you from many chronic diseases. Don’t wait for symptoms to appear; start today by applying these healthy habits for a better and more active life!''',

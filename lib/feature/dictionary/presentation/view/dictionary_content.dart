@@ -19,13 +19,9 @@ class DictionaryContent extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          // diseaseInfo[index].disease
           Provider.of<LanguageProvider>(context).isEnglish
               ? diseaseInfo[index].disease
-              : diseaseInfoa[index].disease
-          //diseaseInfo[index].disease
-
-          ,
+              : diseaseInfoa[index].disease,
           style: AppTextStyle.poppins60030.copyWith(
               fontSize: 25.sp, color: Theme.of(context).colorScheme.primary),
         ),

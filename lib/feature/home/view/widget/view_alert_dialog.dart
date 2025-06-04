@@ -11,18 +11,23 @@ void customDilogs(BuildContext context) {
     builder: (context) => AlertDialog(
       icon: const Icon(
         Icons.error,
-        size: 32,
+        size: 45,
         color: Colors.red,
       ),
       content: Text(
+        
+     
+        
         AppLocalizations.of(context).translate("ImportanttNotice"),
-        style: AppTextStyle.poppins50020,
+        style: AppTextStyle.poppins50020.copyWith(fontSize: 17),
       ),
       actions: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            TextButton(
+            MaterialButton(
+              shape: const StadiumBorder(),
+              color: const Color(0xff00A651),
               onPressed: () {
                 Navigation.push(context: context, pushScreen: const ChatView());
               },
@@ -33,15 +38,16 @@ void customDilogs(BuildContext context) {
                 ),
               ),
             ),
-            TextButton(
+            MaterialButton(
+              shape: const StadiumBorder(),
+              color: const Color.fromARGB(255, 170, 0, 0),
               onPressed: () {
                 Navigation.pop(context: context);
               },
               child: Text(
                 AppLocalizations.of(context).translate("cancel"),
-                style: AppTextStyle.poppins50020.copyWith(
-                  fontSize: 14.sp,
-                ),
+                style: AppTextStyle.poppins50020
+                    .copyWith(fontSize: 14.sp, color: Colors.white),
               ),
             ),
           ],

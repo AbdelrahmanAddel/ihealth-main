@@ -25,8 +25,8 @@ class _MapScreenState extends State<MapScreen> {
   List<LatLng> pharmacyRoutePoints = [];
   List<LatLng> hospitalRoutePoints = [];
   final Distance distance = const Distance();
-  StreamSubscription<LocationData>? _locationSubscription; // جعله nullable
-  bool _isDisposed = false; // متغير لتتبع حالة الـ Widget
+  StreamSubscription<LocationData>? _locationSubscription; 
+  bool _isDisposed = false; 
 
   @override
   void initState() {
@@ -36,8 +36,8 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   void dispose() {
-    _isDisposed = true; // تحديث حالة الـ Widget إلى "تم التخلص منه"
-    _locationSubscription?.cancel(); // إلغاء الاشتراك إذا كان موجودًا
+    _isDisposed = true; 
+    _locationSubscription?.cancel(); //
     super.dispose();
   }
 
@@ -69,11 +69,9 @@ class _MapScreenState extends State<MapScreen> {
       }
     }
 
-    // الاستماع لتغيرات الموقع
     _locationSubscription =
         location.onLocationChanged.listen((LocationData newLocation) {
       if (!_isDisposed && mounted) {
-        // التحقق من أن الـ Widget ما زال موجودًا
         setState(() {
           currentLocation = newLocation;
         });
@@ -83,7 +81,7 @@ class _MapScreenState extends State<MapScreen> {
 
   Future<void> fetchNearbyPlaces(String placeType) async {
     if (currentLocation == null || _isDisposed) {
-      return; // التحقق من حالة الـ Widget
+      return; 
     }
 
     final double lat = currentLocation!.latitude!;
@@ -100,7 +98,6 @@ class _MapScreenState extends State<MapScreen> {
     );
 
     if (response.statusCode == 200 && !_isDisposed && mounted) {
-      // التحقق من حالة الـ Widget
       final data = json.decode(response.body);
       final List<dynamic> elements = data['elements'];
 
@@ -155,14 +152,14 @@ class _MapScreenState extends State<MapScreen> {
                   14.0,
                 );
               } catch (e) {
-                print('❌ خطأ أثناء تحريك الخريطة: $e');
+                print('Error =>  $e');
               }
             }
           });
         }
       });
     } else {
-      print('❌ فشل في جلب بيانات $placeType');
+      print(' Error = ?$placeType');
     }
   }
 
@@ -190,10 +187,10 @@ class _MapScreenState extends State<MapScreen> {
           }
         });
       } else {
-        print('❌ فشل في جلب المسار لـ $placeType');
+        print('Error = > $placeType');
       }
     } catch (e) {
-      print('❌ خطأ أثناء جلب المسار: $e');
+      print('Error = > $e');
     }
   }
 
@@ -242,7 +239,7 @@ class _MapScreenState extends State<MapScreen> {
           fetchNearbyPlaces("pharmacy");
           fetchNearbyPlaces("hospital");
         },
-        child: Icon(
+        child: const Icon(
           Icons.location_searching_rounded,
           color: Colors.white,
         ),

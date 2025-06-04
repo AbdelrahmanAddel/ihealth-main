@@ -70,7 +70,7 @@
   "confirmNewPassword": "Confirm New Password",
   "fungal_infection_description": "Fungal infection is a common skin condition caused by fungi.",
   "update": "Update",
-  "ImportanttNotice": "Important Notice Before We Start:\n Our chatbot provides initial suggestions based on the symptoms you enter.\nHowever, it may not always be accurate, and it is **not** a substitute for a real medical diagnosis.\nIf your condition is serious or your symptoms persist, please consult a doctor immediately",
+  "ImportanttNotice": "Important Notice Before Start:\n \nOur chatbot provides initial suggestions based on the symptoms you enter. However, it may not always be accurate, and it is **not** a substitute for a real medical diagnosis. If your condition is serious or your symptoms persist, please consult a doctor immediately",
   "gotIt": "Got It",
   "cancel": "Cancel",
   "hi": "Hi"

@@ -42,9 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Assets.assetsImagesHome,
                 color: currentIndex == 0 ? AppColors.greenButton : Colors.black,
               ),
-              label:
-                  //AppStrings.home
-                  AppLocalizations.of(context).translate("home"),
+              label: AppLocalizations.of(context).translate("home"),
             ),
             BottomNavigationBarItem(
               icon: Image.asset(

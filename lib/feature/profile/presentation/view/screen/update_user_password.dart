@@ -112,7 +112,6 @@ class ChangeUserPassword extends StatelessWidget {
             customFlutterToast(
                 message: state.successMessage,
                 color:
-                    //AppColors.greenButton
                     Theme.of(context).colorScheme.primary);
             Navigation.pop(context: context);
           } else if (state is FailureToUpdateuserPassword) {

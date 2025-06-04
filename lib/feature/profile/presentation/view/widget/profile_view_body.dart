@@ -6,10 +6,8 @@ import 'package:i_health/core/constants/app_text_style.dart';
 import 'package:i_health/core/functions/navigation.dart';
 import 'package:i_health/core/helper/spaceing.dart';
 import 'package:i_health/feature/home/home.dart';
-import 'package:i_health/feature/home/view/home_view.dart';
-import 'package:i_health/feature/profile/domain/entitiy/user_profile_entity.dart';
 import 'package:i_health/feature/profile/presentation/cubit/profile_data_cubit.dart';
-import 'package:i_health/feature/profile/presentation/view/profile_view.dart';
+import 'package:i_health/feature/profile/presentation/view/widget/profile_image.dart';
 import 'package:i_health/feature/profile/presentation/view/widget/user_profile_modification.dart';
 import 'package:i_health/theme_provider.dart';
 import 'package:provider/provider.dart' as Colors show Provider;
@@ -95,7 +93,6 @@ class ProfileViewBody extends StatelessWidget {
               ],
             );
           } else if (state is PickUserProfileImageSuccess) {
-            // هنا نعرض رسالة نجاح فقط من PickUserProfileImageSuccess
             return Center(
               child: Text(
                 'Image picked successfully!',
@@ -114,31 +111,6 @@ class ProfileViewBody extends StatelessWidget {
             return loadingStateSection(context);
           }
         },
-      ),
-    );
-  }
-}
-
-class ProfileImage extends StatelessWidget {
-  const ProfileImage({
-    super.key,
-    required this.userProfileEntity,
-  });
-
-  final UserProfileEntity userProfileEntity;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () async {
-        await context.read<ProfileDataCubit>().pickUserProfileImage();
-      },
-      child: CircleAvatar(
-        backgroundColor: const Color(0xffC4C4C4),
-        backgroundImage: userProfileEntity.imageUrl != null
-            ? NetworkImage(userProfileEntity.imageUrl!)
-            : const AssetImage("assest/images/user.png") as ImageProvider,
-        radius: 90.r,
       ),
     );
   }

@@ -1,9 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:i_health/feature/home/home.dart';
-import 'package:i_health/feature/home/view/home_view.dart';
+
 import 'package:i_health/feature/sign_in/data/data_source/local_data/shared_pre.dart';
-import 'package:i_health/feature/sign_in/presentation/view/sign_in_view.dart';
 import 'theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
